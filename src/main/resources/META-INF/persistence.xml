@@ -1,0 +1,26 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+    <persistence-unit name="myPersistenceUnit">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>com.codurance.jpa.entities.Address</class>
+        <class>com.codurance.jpa.entities.NationalInsuranceNumber</class>
+        <class>com.codurance.jpa.entities.Employee</class>
+        <class>com.codurance.jpa.entities.Company</class>
+        <properties>
+            <!-- Configuring JDBC properties -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://192.168.99.100:5432/myuser" />
+            <property name="javax.persistence.jdbc.user" value="myuser" />
+            <property name="javax.persistence.jdbc.password" value="mypassword" />
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+
+            <!-- Hibernate properties -->
+            <property name="hibernate.show_sql" value="false" />
+            <property name="hibernate.format_sql" value="false" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL95Dialect" />
+            <property name="hibernate.hbm2ddl.auto" value="validate" />
+        </properties>
+    </persistence-unit>
+</persistence>
